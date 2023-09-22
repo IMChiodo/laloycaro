@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MainService {
-  private readonly BASE_URL = 'http://localhost:3005'; // Replace with your NestJS backend URL
+  private readonly BASE_URL = 'https://casamiento-backend.vercel.app/'; // Replace with your NestJS backend URL
 
   constructor(private http: HttpClient) {}
 
