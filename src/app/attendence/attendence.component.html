@@ -1,0 +1,89 @@
+<div class="flex flex-col items-center max-w-full w-screen h-screen">
+  <img
+    class="icon absolute right-auto top-[85%] scrolldownIcon"
+    src="assets/ScrollDown.png"
+    *ngIf="showScroll"
+    [@scrollAnimation]="scrollState"
+  />
+  <div class="flex flex-row items-center gap-5">
+    <p class="title">Asistencia</p>
+    <img class="icon" src="assets/Check.png" />
+  </div>
+  <app-division></app-division>
+  <p class="information" *ngIf="!attendanceExists">
+    Te pedimos por favor que nos confirmes tu asistencia antes del
+    <span [@pulse]="pulseState">20 de octubre</span>
+  </p>
+
+  <div
+    class="form-attendence p-10 w-2/3 mt-6 flex flex-col items-center justify-center gap-10"
+    *ngIf="attendanceExists"
+  >
+    <p class="information">Muchas gracias por confirmar tu asistencia</p>
+    <p class="information">
+      Si querés cambiar algo por favor contactanos directamente!
+    </p>
+  </div>
+  <div
+    class="form-attendence p-10 w-full md:w-2/3 mt-6 flex flex-col items-center gap-10"
+    *ngIf="!attendanceExists"
+  >
+    <p class="guest-name">{{ name }}</p>
+    <div class="flex flex-row items-center gap-10">
+      <p class="attendence-option">VOY</p>
+      <img
+        (click)="confirmAttendance(true)"
+        class="icon cursor-pointer"
+        src="{{ willGo ? 'assets/Check.png' : 'assets/Unchecked.png' }}"
+      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="4"
+        height="74"
+        viewBox="0 0 4 74"
+        fill="none"
+      >
+        <path d="M2 0V74" stroke="#1D1D1D" stroke-width="4" />
+      </svg>
+
+      <p class="attendence-option">NO VOY</p>
+      <img
+        (click)="confirmAttendance(false)"
+        class="icon cursor-pointer"
+        src="{{ wontGo ? 'assets/NotChecked.png' : 'assets/Unchecked.png' }}"
+      />
+    </div>
+    <div class="flex flex-row items-center gap-2">
+      <p class="food-rest" [@swipeOut]="wontGo ? 'out' : 'in'">
+        Restricciones alimentarias
+      </p>
+      <img
+        class="icon cursor-pointer"
+        src="assets/WarningCircle.png"
+        [@swipeOut]="wontGo ? 'out' : 'in'"
+      />
+    </div>
+    <div *ngIf="wontGo" class="w-full flex items-center justify-center">
+      <img
+        class="icon relative"
+        src="assets/SmileySad.png"
+        [hidden]="!wontGo"
+        [@rollInOut]="wontGo ? 'in' : 'out'"
+      />
+    </div>
+    <textarea
+      [@swipeOut]="wontGo ? 'out' : 'in'"
+      [disabled]="wontGo"
+      class="bg-[#f6f3eb] resize-none custom-font w-full"
+      [ngClass]="{ 'cursor-not-allowed': wontGo }"
+      cols="90"
+      rows="5"
+    ></textarea>
+    <div
+      class="attendance-button p-5 cursor-pointer"
+      (click)="saveAttendance()"
+    >
+      <p class="attendance-button-text">ENVIAR</p>
+    </div>
+  </div>
+</div>

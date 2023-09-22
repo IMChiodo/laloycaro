@@ -1,0 +1,43 @@
+<div id="fullpage">
+  <div class="section">
+    <app-cover [guestExists]="userData.guestExists"></app-cover>
+  </div>
+  <div class="section" *ngIf="userData.guestExists">
+    <app-description></app-description>
+  </div>
+  <div class="section" *ngIf="userData.guestExists">
+    <app-location [isDinner]="userData.dinner"></app-location>
+  </div>
+  <div class="section" *ngIf="userData.guestExists">
+    <app-present></app-present>
+  </div>
+  <div class="section" *ngIf="userData.guestExists">
+    <app-dresscode></app-dresscode>
+  </div>
+  <div class="section" *ngIf="userData.guestExists">
+    <app-attendence
+      [name]="guest!"
+      [attendanceExists]="userData.attendanceExists"
+      (will)="onWillChanged($event)"
+    ></app-attendence>
+  </div>
+  <div
+    class="section"
+    *ngIf="
+      showFireworks || (userData.attendanceExists && !userData.bachelorExists)
+    "
+  >
+    <app-tinder
+      [name]="guest!"
+      [bachelorExists]="userData.bachelorExists"
+    ></app-tinder>
+  </div>
+</div>
+<ng-particles
+  *ngIf="showFireworks"
+  class="h-screen z-50"
+  [id]="id"
+  [options]="particlesOptions"
+  [particlesInit]="particlesInit"
+  (particlesLoaded)="particlesLoaded($event)"
+></ng-particles>

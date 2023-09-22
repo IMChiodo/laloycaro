@@ -1,0 +1,33 @@
+<div
+  class="flex flex-col items-center justify-center w-full mt-0 md:mt-0 overflow-x-hidden"
+>
+  <div *ngIf="guestExists" class="first-title mt-0 sm:text-sm md:mt-0">
+    Caro y Lalo
+  </div>
+
+  <app-division *ngIf="guestExists"></app-division>
+
+  <div class="mt-10 md:mt-14 text-center" *ngIf="guestExists">
+    <div class="flex flex-col md:flex-row justify-center w-full">
+      <div class="md:mr-2">
+        <span class="second-title md:text-xl">NUESTRA </span>
+        <div class="relative md:inline-block">
+          <span class="second-title md:text-xl">ÚLTIMA</span>
+          <div class="strike-line" [ngClass]="{ striked: isStriked }"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row md:gap-4 justify-center w-full">
+      <span class="second-title md:text-xl">NOCHE </span>
+      <span class="second-title md:text-xl md:ml-2"> MÁGICA</span>
+    </div>
+  </div>
+
+  <div class="mt-10 md:mt-14 text-center" *ngIf="!guestExists">
+    <div class="flex flex-col md:flex-row justify-center w-full">
+      <div class="md:mr-2">
+        <span class="second-title md:text-xl">LUGAR EQUIVOCADO ! </span>
+      </div>
+    </div>
+  </div>
+</div>

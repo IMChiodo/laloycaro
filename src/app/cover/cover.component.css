@@ -1,0 +1,50 @@
+.first-title {
+  color: #000;
+  text-align: center;
+  font-family: Licorice;
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.second-title {
+  color: #1d1d1d;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 4.8px;
+}
+
+/* Mobile styles */
+@media (max-width: 640px) {
+  .first-title {
+    font-size: 78px; /* Adjust as necessary */
+  }
+  .second-title {
+    font-size: 48px; /* Adjust as necessary */
+  }
+}
+
+.strike-line {
+  @apply bg-black absolute top-1/2 left-0 transition-all duration-500 w-0;
+}
+
+@media (max-width: 640px) {
+  .strike-line {
+    @apply h-1; /* Adjust to make the line thinner on mobile */
+  }
+}
+
+@media (min-width: 641px) {
+  .strike-line {
+    @apply h-2; /* Adjust to your preference for desktop */
+  }
+}
+
+.striked {
+  @apply w-full;
+}

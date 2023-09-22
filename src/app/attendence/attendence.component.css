@@ -1,0 +1,128 @@
+.title {
+  color: #000;
+  text-align: center;
+  font-family: Licorice;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.information {
+  color: #1d1d1d;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1.8px;
+}
+
+.form-attendence {
+  background: rgba(232, 217, 200, 0.5);
+}
+
+.guest-name {
+  color: #000;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.2px;
+}
+
+.attendence-option {
+  color: #000;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.2px;
+}
+
+.food-rest {
+  color: #000;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.2px;
+}
+
+.attendance-button {
+  background: #f6f3eb;
+}
+
+.attendance-button-text {
+  color: #000;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.2px;
+}
+
+.custom-font {
+  font-family: Julius Sans One;
+}
+
+.information span {
+  display: inline-block;
+}
+
+/* CSS */
+.fireworks-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.firework {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f00; /* Firework color */
+  border-radius: 50%;
+  animation: explode 1s ease-out;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 640px) {
+  .title {
+    font-size: 78px; /* Adjust as necessary */
+  }
+  .information {
+    font-size: 20px; /* Adjust as necessary */
+  }
+  svg {
+    width: 100px !important;
+  }
+
+  .scrolldownIcon {
+    top: 87% !important;
+  }
+}

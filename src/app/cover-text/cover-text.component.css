@@ -1,0 +1,76 @@
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+path {
+  stroke: black;
+  fill: black;
+  stroke-width: 2;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  fill-opacity: 0;
+  animation-duration: 1s; /* Adjusted to 1 second per path */
+  animation-fill-mode: forwards;
+}
+
+#path1stroke,
+#path1fill {
+  animation-name: draw, fill;
+  animation-delay: 0s, 0s;
+}
+
+#path2stroke,
+#path2fill {
+  animation-name: draw, fill;
+  animation-delay: 1s, 1s;
+}
+
+#path3stroke,
+#path3fill {
+  animation-name: draw, fill;
+  animation-delay: 2s, 2s;
+}
+
+#path4stroke,
+#path4fill {
+  animation-name: draw, fill;
+  animation-delay: 3s, 3s;
+}
+
+#path5stroke,
+#path5fill {
+  animation-name: draw, fill;
+  animation-delay: 4s, 4s;
+}
+
+#path6stroke,
+#path6fill {
+  animation-name: draw, fill;
+  animation-delay: 5s, 5s;
+}
+
+#path7stroke,
+#path7fill {
+  animation-name: draw, fill;
+  animation-delay: 6s, 6s;
+}
+
+#path8stroke,
+#path8fill {
+  animation-name: draw, fill;
+  animation-delay: 7s, 7s;
+}
+
+#path9stroke,
+#path9fill {
+  animation-name: draw, fill;
+  animation-delay: 8s, 8s;
+}

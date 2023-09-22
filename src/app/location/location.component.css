@@ -1,0 +1,41 @@
+.title {
+  color: #000;
+  text-align: center;
+  font-family: Licorice;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.subtitle {
+  color: #1d1d1d;
+  font-family: Julius Sans One;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.6px;
+}
+
+.time-item {
+  color: #1d1d1d;
+  font-family: Julius Sans One;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 60px; /* Adjust as necessary */
+  }
+  .subtitle {
+    font-size: 24px; /* Adjust as necessary */
+  }
+  .time-item {
+    font-size: 16px;
+  }
+}

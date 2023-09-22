@@ -1,0 +1,26 @@
+<div class="flex flex-col items-center">
+  <div class="flex flex-row items-center gap-5">
+    <p class="title">Regalo</p>
+    <img class="icon" src="assets/GiftBox.png" />
+  </div>
+  <app-division></app-division>
+  <p class="gift-text w-[80%] text-justify">
+    Dicen que lo más importante es tu presencia...
+  </p>
+  <p class="gift-text w-[80%] md:w-[60%] text-justify">
+    pero a nosotros también nos importa el regalo,<br />
+    asique te dejamos los datos para que nos transfieras lo que dicte tu corazón
+  </p>
+  <div class="flex flex-row items-center justify-center mt-10 w-full">
+    <p class="gift-text mr-5">
+      ALIAS: <br class="inline-block md:hidden" />
+      <span>CAROYLALO</span>
+    </p>
+    <img
+      class="icon cursor-pointer mr-2"
+      (click)="copyToClipboard()"
+      src="assets/CopyPaste.png"
+    />
+    <app-clickable-animation></app-clickable-animation>
+  </div>
+</div>

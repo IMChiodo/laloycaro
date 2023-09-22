@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "~animate.css/animate.css";
+@import "~fullpage.js/dist/fullpage.css";
+
+@font-face {
+  font-family: "Licorice";
+  src: url("assets/Licorice-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Julius Sans One";
+  src: url("assets/JuliusSansOne-Regular.ttf");
+}
+
+html {
+  background-color: #f6f3eb;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.fp-watermark {
+  display: none !important;
+}
+
+.fp-overflow {
+  overflow-x: clip !important;
+}

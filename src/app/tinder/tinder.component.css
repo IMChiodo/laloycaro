@@ -1,0 +1,161 @@
+.title {
+  color: #000;
+  text-align: center;
+  font-family: Licorice;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.information {
+  color: #1d1d1d;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.8px;
+}
+
+.form-attendence {
+  background: rgba(232, 217, 200, 0.5);
+}
+
+.guest-name {
+  color: #000;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.2px;
+}
+
+.attendence-option {
+  color: #000;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.2px;
+}
+
+.food-rest {
+  color: #000;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.2px;
+}
+
+.attendance-button {
+  background: #f6f3eb;
+}
+
+.attendance-button-text {
+  color: #000;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.2px;
+}
+
+.custom-font {
+  font-family: Julius Sans One;
+}
+
+.postdata {
+  color: #1d1d1d;
+  font-family: Julius Sans One;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1px;
+}
+
+.photo-desc {
+  color: #000;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.8px;
+}
+
+/* Style for the poop emoji */
+.poop-emoji {
+  height: 40px; /* Set the emoji's full height here */
+  width: auto; /* Allow width to adjust automatically */
+  animation: emojiAnimation 0.8s ease-in-out; /* Apply the animation here */
+  animation-fill-mode: forwards;
+}
+
+/* Keyframes for the emoji animation */
+@keyframes emojiAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px); /* Start at full height */
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0); /* Fade in and maintain full height */
+  }
+  60% {
+    transform: translateY(-10px); /* First bounce up */
+  }
+  75% {
+    transform: translateY(0); /* First bounce down, less than original height */
+  }
+  85% {
+    transform: translateY(-5px); /* Second bounce up, smaller than the first */
+  }
+  100% {
+    transform: translateY(0); /* End at the original position */
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 640px) {
+  .title {
+    font-size: 78px; /* Adjust as necessary */
+  }
+  .postdata {
+    font-size: 12px;
+  }
+  .information {
+    font-size: 20px; /* Adjust as necessary */
+  }
+  svg {
+    width: 50px !important;
+  }
+
+  .scrolldownIcon {
+    top: 87% !important;
+  }
+
+  .attendence-option {
+    font-size: 16px;
+  }
+
+  .photo-desc {
+    font-size: 12px;
+  }
+
+  .food-rest {
+    font-size: 16px;
+  }
+}
