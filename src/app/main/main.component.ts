@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import fullpage from 'fullpage.js';
 import { Container, Engine } from 'tsparticles-engine';
 import { loadConfettiPreset } from 'tsparticles-preset-confetti';
 import { MainService } from './service/main.service';
+import FontFaceObserver from 'fontfaceobserver';
 
 @Component({
   selector: 'app-main',
@@ -13,6 +14,10 @@ import { MainService } from './service/main.service';
 export class MainComponent {
   guest: string | null = null;
   id = 'tsparticles';
+  isLoading = true;
+  fontsLoaded = false;
+  imagesLoaded = false;
+  dataLoaded = false;
 
   particlesOptions = {
     preset: 'confetti',
@@ -64,13 +69,29 @@ export class MainComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private readonly mainService: MainService
+    private readonly mainService: MainService,
+    private readonly cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.guest = params.get('guest');
       this.checkGuest();
+    });
+
+    this.checkImagesLoaded();
+
+    const robotoObserver = new FontFaceObserver('Licorice');
+    const anotherFontObserver = new FontFaceObserver('Julius Sans One');
+
+    Promise.all([
+      robotoObserver.load(),
+      anotherFontObserver.load(), // Only if you have another font
+    ]).then(() => {
+      this.fontsLoaded = true;
+      console.log('aca');
+
+      this.checkAllLoaded();
     });
 
     new fullpage('#fullpage', {
@@ -82,7 +103,38 @@ export class MainComponent {
   checkGuest(): void {
     this.mainService.checkGuest(this.guest!).subscribe((data) => {
       this.userData = data;
+      this.dataLoaded = true;
+      this.checkAllLoaded();
     });
+  }
+
+  checkImagesLoaded() {
+    const images = document.images;
+    let count = images.length;
+    if (!count) this.imagesLoaded = true; // In case there are no images
+
+    for (let img of Array.from(images)) {
+      if (img.complete) {
+        count--;
+      } else {
+        img.onload = () => {
+          count--;
+          if (count === 0) {
+            this.imagesLoaded = true;
+            this.checkAllLoaded();
+          }
+        };
+      }
+    }
+  }
+
+  checkAllLoaded() {
+    console.log('entro');
+
+    if (this.fontsLoaded && this.imagesLoaded && this.dataLoaded) {
+      this.isLoading = false;
+      this.cd.detectChanges();
+    }
   }
 
   particlesLoaded(container: Container): void {

@@ -10,13 +10,14 @@ import {
   keyframes,
 } from '@angular/animations';
 import { MainService } from '../main/service/main.service';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tinder',
   standalone: true,
   templateUrl: './tinder.component.html',
   styleUrls: ['./tinder.component.css'],
-  imports: [CommonModule, DivisionComponent],
+  imports: [CommonModule, DivisionComponent, FormsModule, ReactiveFormsModule],
   animations: [
     trigger('emojiFall', [
       state('start', style({ transform: 'translateY(-100%)', opacity: 0 })),
@@ -55,6 +56,8 @@ export class TinderComponent implements OnInit {
   uploadedFileName: string | null = null;
   uploadedImageSrc: string | null = null;
   uploadedBase64: string | null = null;
+  instagramControl = new FormControl('');
+  loading = false;
 
   constructor(private readonly mainService: MainService) {}
 
@@ -111,19 +114,15 @@ export class TinderComponent implements OnInit {
   }
 
   saveBachelor(): void {
-    if (
-      !this.name ||
-      this.single === this.occuped ||
-      this.play === this.wontPlay
-    ) {
-      alert('Please fill out all required fields before saving!');
+    if (!this.name || this.single === this.occuped) {
       return;
     }
 
+    this.loading = true;
     const guestName = this.name;
     const play = this.play;
     // Assuming you have a field for Instagram or get it from somewhere
-    const instagram = ''; // replace with the appropriate value
+    const instagram = this.instagramControl.getRawValue() || '';
 
     // Use the base64 string without the metadata for the picture
     const picture = this.uploadedImageSrc?.split(',')[1];
@@ -134,10 +133,12 @@ export class TinderComponent implements OnInit {
         (response) => {
           this.mainService.checkGuest(guestName).subscribe((data) => {
             this.bachelorExists = data.bachelorExists;
+            this.loading = false;
           });
         },
         (error) => {
           // handle error response
+          this.bachelorExists = true;
           console.error('There was an error saving the bachelor data:', error);
         }
       );

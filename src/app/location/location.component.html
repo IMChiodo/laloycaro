@@ -9,17 +9,23 @@
     class="grid grid-cols-3 gap-x-10 items-stretch mt-5"
     style="grid-template-columns: 1fr auto 1fr"
   >
-    <div class="flex flex-col gap-y-16 w-full items-end">
+    <div
+      [class]="
+        !isDinner
+          ? 'flex flex-col gap-y-16 w-full items-end'
+          : 'flex flex-col gap-y-[6rem] w-full items-end'
+      "
+    >
       <div class="flex items-center gap-2 h-[calc(100%/3)]" *ngIf="isDinner">
         <img class="icon" src="assets/WeddingCoupleBrideGroom.png" />
         <p class="time-item">18 HS</p>
       </div>
-      <div class="flex items-center gap-2 h-[calc(100%/3)] mt-12 md:mt-0">
+      <div class="flex items-center gap-2 h-[calc(100%/3)] mt-0 md:mt-0">
         <img class="icon" src="assets/PartyMusicDanceWoman.png" />
         <p class="time-item" *ngIf="isDinner">20 HS</p>
         <p class="time-item" *ngIf="!isDinner">00:45 HS</p>
       </div>
-      <div class="flex items-center gap-2 h-[calc(100%/3)] mt-10 md:mt-0">
+      <div class="flex items-center gap-2 h-[calc(100%/3)] mt-0 md:mt-0">
         <img class="icon" src="assets/MedicalConditionCough.png" />
         <p class="time-item">05 HS</p>
       </div>

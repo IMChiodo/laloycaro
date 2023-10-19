@@ -17,6 +17,6 @@ export class CoverComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.isStriked = true;
-    }, 500); // 0.5 seconds delay
+    }, 2000); // 0.5 seconds delay
   }
 }

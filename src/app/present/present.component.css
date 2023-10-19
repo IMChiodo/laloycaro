@@ -19,11 +19,33 @@
   letter-spacing: 1.8px;
 }
 
+.copiado-text {
+  font-family: Julius Sans One;
+  font-size: 24px;
+  color: #000;
+  opacity: 0;
+  transition: opacity 0.5s;
+  position: absolute;
+  bottom: 0px; /* Adjust as needed */
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
 @media (max-width: 640px) {
   .title {
     font-size: 60px; /* Adjust as necessary */
   }
   .gift-text {
     font-size: 24px; /* Adjust as necessary */
+  }
+
+  .copiado-text {
+    font-size: 12px;
   }
 }

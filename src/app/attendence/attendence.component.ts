@@ -20,6 +20,7 @@ import { Engine, Container } from 'tsparticles-engine';
 import { NgParticlesModule } from 'ng-particles';
 import { loadConfettiPreset } from 'tsparticles-preset-confetti';
 import { MainService } from '../main/service/main.service';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-attendence',
@@ -31,6 +32,8 @@ import { MainService } from '../main/service/main.service';
     MatTooltipModule,
     DivisionComponent,
     NgParticlesModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   animations: [
     trigger('pulse', [
@@ -121,6 +124,8 @@ export class AttendenceComponent {
   pulseState: string = 'small';
   showScroll = false;
   scrollState: string = 'down';
+  foodRestControl = new FormControl('');
+  loading = false;
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -139,9 +144,16 @@ export class AttendenceComponent {
   }
 
   saveAttendance(): void {
+    this.loading = true;
+    const foodRest = this.foodRestControl.getRawValue() || '';
     this.mainService
-      .saveAttendence(this.name, this.showScroll, 'nada')
-      .subscribe((data) => console.log(data));
+      .saveAttendence(this.name, this.showScroll, foodRest)
+      .subscribe((data) => {
+        this.mainService.checkGuest(this.name).subscribe((data) => {
+          this.attendanceExists = data.attendanceExists;
+          this.loading = false;
+        });
+      });
   }
 
   animateScrollForever() {

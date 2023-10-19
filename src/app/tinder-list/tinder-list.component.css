@@ -1,3 +1,35 @@
+.description {
+  color: #1d1d1d;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.8px;
+}
+
+.instagram {
+  text-align: center;
+  font-family: Licorice;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (max-width: 640px) {
+  .description {
+    font-size: 20px; /* Adjust as necessary */
+    letter-spacing: 1.5px;
+  }
+
+  .instagram {
+    font-size: 20px; /* Adjust as necessary */
+    letter-spacing: 1.5px;
+  }
+}
+
 #loading-indicator {
   position: fixed;
   top: 0;

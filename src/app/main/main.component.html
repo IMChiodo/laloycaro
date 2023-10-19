@@ -1,4 +1,14 @@
 <div id="fullpage">
+  <div
+    class="section"
+    id="loading-indicator"
+    [style.display]="isLoading ? 'flex' : 'none'"
+  >
+    <p>
+      Bancá un toque<span class="dot dot1">.</span
+      ><span class="dot dot2">.</span><span class="dot dot3">.</span>
+    </p>
+  </div>
   <div class="section">
     <app-cover [guestExists]="userData.guestExists"></app-cover>
   </div>

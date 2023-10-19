@@ -1,0 +1,25 @@
+<div id="fullpage">
+  <div
+    class="section"
+    id="loading-indicator"
+    [style.display]="isLoading ? 'flex' : 'none'"
+  >
+    <p>
+      Bancá un toque<span class="dot dot1">.</span
+      ><span class="dot dot2">.</span><span class="dot dot3">.</span>
+    </p>
+  </div>
+  <div class="section" *ngFor="let bachelor of bachelors">
+    <div class="flex flex-col items-center mt-0">
+      <h2 class="text-2xl description">
+        {{ bachelor.name | titlecase }} -
+        <span class="instagram text-blue-800"
+          ><a href="https://www.instagram.com/luciacarassai" target="_blank"
+            >@<span class="underline">{{ bachelor.instagram }}</span></a
+          ></span
+        >
+      </h2>
+      <img src="{{ profilePicUrl }}" alt="" class="w-fit" />
+    </div>
+  </div>
+</div>

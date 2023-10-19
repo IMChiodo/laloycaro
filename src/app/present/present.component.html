@@ -11,16 +11,17 @@
     pero a nosotros también nos importa el regalo,<br />
     asique te dejamos los datos para que nos transfieras lo que dicte tu corazón
   </p>
-  <div class="flex flex-row items-center justify-center mt-10 w-full">
-    <p class="gift-text mr-5">
-      ALIAS: <br class="inline-block md:hidden" />
-      <span>CAROYLALO</span>
-    </p>
-    <img
-      class="icon cursor-pointer mr-2"
-      (click)="copyToClipboard()"
-      src="assets/CopyPaste.png"
-    />
-    <app-clickable-animation></app-clickable-animation>
+  <div class="flex flex-col items-center justify-center mt-10 w-full gap-5">
+    <p class="gift-text mr-5 md:hidden">ALIAS:</p>
+    <p class="gift-text mr-5">CAROYLALO</p>
+    <div class="flex flex-row items-center justify-center ml-14">
+      <img
+        class="icon cursor-pointer mr-2"
+        (click)="copyToClipboard()"
+        src="assets/CopyPaste.png"
+      />
+      <app-clickable-animation></app-clickable-animation>
+    </div>
+    <p #copiadoText class="copiado-text">COPIADO</p>
   </div>
 </div>

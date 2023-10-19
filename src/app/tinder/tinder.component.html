@@ -1,17 +1,19 @@
-<div class="flex flex-col items-center h-screen">
+<div class="flex flex-col items-center max-h-screen">
   <div class="flex flex-row items-center gap-5">
     <p class="title">Tinder</p>
     <img class="icon" src="assets/LoveHeartFire.png" />
   </div>
   <app-division></app-division>
-  <ng-container *ngIf="!bachelorExists">
+  <ng-container *ngIf="!bachelorExists && !loading">
     <p class="information">
       EN LA NOCHE VA A HABER UN CATÁLOGO DE GENTE SOLTERA
     </p>
     <p class="information">TE INTERESA PARTICIPAR?</p>
-    <p class="postdata mt-5">PD: Después nos tenés que invitar a la boda</p>
+    <p class="postdata mt-2 md:mt-5">
+      PD: Después nos tenés que invitar a la boda
+    </p>
     <div
-      class="form-attendence p-2 md:p-10 w-full md:w-2/3 mt-6 flex flex-col items-center gap-6 md:gap-8 min-h-[650px]"
+      class="form-attendence p-2 md:p-10 w-full md:w-2/3 mt-2 md:mt-6 flex flex-col items-center gap-4 md:gap-8"
     >
       <p class="guest-name text-center w-full">{{ name }}</p>
       <div
@@ -115,11 +117,12 @@
             <input
               type="text"
               class="bg-[#f6f3eb] text-center resize-none custom-font mt-0 w-[80%]"
+              [formControl]="instagramControl"
             />
           </div>
 
           <div class="flex flex-col items-center gap-2">
-            <p class="food-rest">Foto para el CATÁLOGO</p>
+            <p class="food-rest">Foto para el catálogo</p>
 
             <ng-container *ngIf="!uploadedFileName && !uploadedImageSrc">
               <img
@@ -166,18 +169,32 @@
         </ng-template>
       </ng-template>
 
-      <div class="attendance-button p-5 cursor-pointer mt-0 md:mt-auto">
-        <p class="attendance-button-text" (click)="saveBachelor()">ENVIAR</p>
+      <div
+        class="attendance-button p-5 cursor-pointer mt-0 md:mt-auto"
+        (click)="saveBachelor()"
+      >
+        <p class="attendance-button-text">ENVIAR</p>
       </div>
     </div>
   </ng-container>
-  <ng-container *ngIf="bachelorExists">
+  <ng-container *ngIf="bachelorExists && !loading">
     <div
       class="form-attendence p-10 w-full md:w-2/3 mt-6 flex flex-col items-center gap-8 min-h-[650px]"
     >
       <p class="information">MUCHAS GRACIAS POR RESPONDER</p>
       <p class="information">
         Si querés cambiar algo por favor contactanos directamente!
+      </p>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="loading">
+    <div
+      class="form-attendence p-10 w-2/3 mt-6 flex flex-col items-center justify-center gap-10"
+    >
+      <p class="information">
+        Enviando<span class="dot dot1">.</span><span class="dot dot2">.</span
+        ><span class="dot dot3">.</span>
       </p>
     </div>
   </ng-container>
