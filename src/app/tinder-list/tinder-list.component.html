@@ -9,17 +9,41 @@
       ><span class="dot dot2">.</span><span class="dot dot3">.</span>
     </p>
   </div>
+  <div class="section">
+    <div class="flex flex-col items-center max-h-screen">
+      <div class="flex flex-row items-center gap-5">
+        <p class="title">Tinder</p>
+        <img class="icon" src="assets/LoveHeartFire.png" />
+      </div>
+      <app-division></app-division>
+      <p class="information mt-5">
+        LO PROMETIDO ES DEUDA. <br />
+        TE PRESENTAMOS LA LISTA DE LOS SOLTEROS MAS EMPEDERNIDOS Y LAS SOLTERAS
+        MAS SALVAJES DE LA NOCHE
+      </p>
+      <p class="postdata mt-2 md:mt-5 text-center p-5">
+        PD: Te dejamos un dato curioso de cada uno para que rompas el hielo
+      </p>
+    </div>
+  </div>
   <div class="section" *ngFor="let bachelor of bachelors">
     <div class="flex flex-col items-center mt-0">
-      <h2 class="text-2xl description">
-        {{ bachelor.name | titlecase }} -
-        <span class="instagram text-blue-800"
-          ><a href="https://www.instagram.com/luciacarassai" target="_blank"
-            >@<span class="underline">{{ bachelor.instagram }}</span></a
-          ></span
-        >
+      <h2 class="text-4xl description">
+        <span class="instagram text-4xl text-blue-800">
+          <a
+            [href]="'https://www.instagram.com/' + bachelor.instagram"
+            target="_blank"
+          >
+            @<span class="underline">{{ bachelor.instagram }}</span>
+          </a>
+        </span>
+        <p class="mb-5 mt-5">{{ bachelor.funfact }}</p>
       </h2>
-      <img src="{{ profilePicUrl }}" alt="" class="w-fit" />
+      <img
+        [src]="bachelor.picture"
+        alt=""
+        class="max-w-full max-h-[500px] object-contain"
+      />
     </div>
   </div>
 </div>

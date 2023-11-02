@@ -9,10 +9,44 @@
   letter-spacing: 1.8px;
 }
 
+.title {
+  color: #000;
+  text-align: center;
+  font-family: Licorice;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.information {
+  color: #1d1d1d;
+  text-align: center;
+  font-family: Julius Sans One;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.8px;
+}
+
+.custom-font {
+  font-family: Julius Sans One;
+}
+
+.postdata {
+  color: #1d1d1d;
+  font-family: Julius Sans One;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1px;
+}
+
 .instagram {
   text-align: center;
   font-family: Licorice;
-  font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -25,8 +59,43 @@
   }
 
   .instagram {
-    font-size: 20px; /* Adjust as necessary */
     letter-spacing: 1.5px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 640px) {
+  .title {
+    font-size: 60px; /* Adjust as necessary */
+  }
+  .postdata {
+    font-size: 12px;
+  }
+  .information {
+    font-size: 16px; /* Adjust as necessary */
+  }
+  svg {
+    width: 50px !important;
+  }
+
+  .scrolldownIcon {
+    top: 87% !important;
+  }
+
+  .attendence-option {
+    font-size: 14px;
+  }
+
+  .photo-desc {
+    font-size: 10px;
+  }
+
+  .food-rest {
+    font-size: 14px;
+  }
+
+  .guest-name {
+    font-size: 20px;
   }
 }
 
