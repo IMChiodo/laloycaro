@@ -46,9 +46,7 @@ export class TinderListComponent implements OnInit {
   }
 
   getBachelors(): void {
-    console.log(JSON.stringify(bachelorsData));
     this.bachelors = JSON.parse(JSON.stringify(bachelorsData)).default;
-    console.log(this.bachelors);
 
     this.dataLoaded = true;
     this.checkAllLoaded();
